@@ -23,7 +23,7 @@ export default function AuthProvider(props) {
     try {
       const response = await axios.post("/user/register", formData);
       console.log(response.data);
-      alert("register complete");
+
       Dispatch({ type: SERVER_ERROR, payload: "" });
       navigate("/login");
 
@@ -59,7 +59,6 @@ export default function AuthProvider(props) {
       });
       console.log(userResponse.data);
 
-      alert("Successfully loggedin");
       Dispatch({ type: LOGIN, payload: userResponse.data });
       resetForm();
       reduxDispatch(fetchUserCategories());
